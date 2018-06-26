@@ -1,0 +1,13 @@
+$green: #1db954;
+$black: #191414;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.app h1 {
+    color: $green;
+    margin: 20px 0px 0px 40px;
+}
