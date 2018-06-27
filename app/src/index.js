@@ -1,3 +1,5 @@
+import { BrowserRouter } from 'react-router-dom';
+
 import '../assets/spotify_icon.png';
 import '../stylesheets/styles.scss';
 
@@ -6,4 +8,8 @@ import { render } from 'react-dom';
 
 import App from './app.jsx';
 
-render(<App />, document.getElementById('app'));
+render((
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+), document.getElementById('app'));

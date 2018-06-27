@@ -7,13 +7,10 @@ const Artist = (props) => {
                 <p>{props.name}</p>
                 <p>{props.followers} followers</p>
                 <p>{props.genres}</p>
-
-                
             </div>
-
             <figure className="artist_image">
-                    <img src={props.imageUrl} alt="artist"/>
-                </figure>
+                <img src={props.imageUrl} alt="artist"/>
+            </figure>
         </div>
     );
 };

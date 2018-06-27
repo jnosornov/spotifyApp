@@ -18,6 +18,7 @@ module.exports = {
 	output: {
 		path: dist_folder,
 		filename: bundle_file,
+		publicPath: '/'
 	},
 	module: {
 		rules: [
@@ -40,7 +41,8 @@ module.exports = {
 	},
 	devServer: {
 		contentBase: path.join(__dirname, "dist"),
-		compress: true,
+		historyApiFallback: true,
+		compress: true,		
 		port: 3000
     },
     plugins: [ new HtmlWebpackPlugin({
