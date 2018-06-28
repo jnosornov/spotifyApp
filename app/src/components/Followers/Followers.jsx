@@ -39,6 +39,27 @@ class Followers extends Component {
         var expires_in = params.expires_in;
         console.log('Token expires in: ' + expires_in + ' seconds');
 
+        var url = 'https://api.spotify.com/v1/me/following?type=artist';
+        var requestOptions = {
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        };
+
+        axios.get (url, requestOptions).then((response) => {
+
+            var artistData = response.data.artists.items.map((item) => ({
+                name: item.name,
+                genres: item.genres,
+                followers: item.followers.total,
+                images: item.images
+            }));
+
+            console.log(artistData);
+
+        }).catch((err) => {
+            console.log(`Error message: ${err.message}`);
+        });
 
         let artist = (
             <div>

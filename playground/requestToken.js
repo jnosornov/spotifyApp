@@ -19,7 +19,7 @@ axios.get ('https://api.spotify.com/v1/me/following?type=artist',{
     }
 }).then((res) => {
     // > console.log('GET request response', res);
-    console.log('Followed artist: ', res.data.artists.items[0]);
+    //console.log('Followed artist: ', res.data.artists.items[0]);
 }).catch((err) => {
-    console.log(err);
+    console.log(`Error message: `, err.message)
 });
