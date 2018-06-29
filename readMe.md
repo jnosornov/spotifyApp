@@ -8,22 +8,22 @@ The current application fetches data from an user spotify account using the Impl
 
 __1.__ Clone the repository
 
-> git@github.com:jnosornov/spotifyApp.git
+>   `git@github.com:jnosornov/spotifyApp.git`
 
 ### Run the application
 ---
 
 __2.__ Generate node modules folder:
 
->   npm install or npm update
+>   `npm install or npm update`
 
 __3.__ Generate distribution folder:
 
->   npm run build
+>   `npm run build`
 
-__4.__ Run application on development environment (localhost 8080 by default):
+__4.__ Run application on development environment (localhost 3000 by default):
 
->   npm run dev
+>   `npm run dev`
 
 ### __Built with__
 ---
