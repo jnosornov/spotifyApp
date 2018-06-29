@@ -35,7 +35,7 @@ class Followers extends Component {
                 id: index
             }));
 
-            let itemsToBeRender = 50;
+            let itemsToBeRender = 4;
             if(artistData.length > itemsToBeRender) {
                 artistData.splice(itemsToBeRender, artistData.length - itemsToBeRender);
             }
