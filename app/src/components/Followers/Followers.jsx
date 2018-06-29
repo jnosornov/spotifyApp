@@ -3,9 +3,10 @@ import Artist from '../Artist/Artist.jsx';
 import Login from '../Login/Login.jsx';
 import Header from '../Header/Header.jsx';
 
+const getParams = require('../../functions/getAccessToken.js');
 import axios from 'axios';
 
-var artists = require('../../data/artist.json');
+var artists = require('../../seed/seedArtistData.json');
 
 class Followers extends Component {
 
@@ -13,34 +14,12 @@ class Followers extends Component {
         artists
     }
 
-    render() {
-        var state = localStorage.getItem('state');
-        console.log('This is the state inside followers:', state);
-
-        function getHashParams() {
-            var hashParams = {};
-            var e, r = /([^&;=]+)=?([^&;]*)/g,
-                q = window.location.hash.substring(1);
-            while ( e = r.exec(q)) {
-               hashParams[e[1]] = decodeURIComponent(e[2]);
-            }
-            return hashParams;
-        }
-
-        var params = getHashParams();
-        console.log('URL parameters: ', params);
-
+    componentDidMount() {
+        var params = getParams.getHashParams();
         var accessToken = params.access_token;
-        console.log('Access token: ', accessToken);
 
-        var token_type = params.token_type;
-        console.log('Token type: ', token_type);
-
-        var expires_in = params.expires_in;
-        console.log('Token expires in: ' + expires_in + ' seconds');
-
-        var url = 'https://api.spotify.com/v1/me/following?type=artist';
-        var requestOptions = {
+        const url = 'https://api.spotify.com/v1/me/following?type=artist';
+        const requestOptions = {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
@@ -48,19 +27,26 @@ class Followers extends Component {
 
         axios.get (url, requestOptions).then((response) => {
 
-            var artistData = response.data.artists.items.map((item) => ({
+            var artistData = response.data.artists.items.map((item, index) => ({
                 name: item.name,
                 genres: item.genres,
                 followers: item.followers.total,
-                images: item.images
+                images: item.images,
+                id: index
             }));
 
-            console.log(artistData);
+            let itemsToBeRender = 50;
+            if(artistData.length > itemsToBeRender) {
+                artistData.splice(itemsToBeRender, artistData.length - itemsToBeRender);
+            }
 
+            this.setState({ artists : artistData });            
         }).catch((err) => {
             console.log(`Error message: ${err.message}`);
         });
+    }
 
+    render() {
         let artist = (
             <div>
                 {this.state.artists.map((artist) => {
@@ -68,7 +54,7 @@ class Followers extends Component {
                         name={artist.name}
                         followers={artist.followers}
                         genres={artist.genres}
-                        imageUrl={artist.imageUrl}
+                        imageUrl={artist.images[0].url}
                         key={artist.id}
                     />
                 })}

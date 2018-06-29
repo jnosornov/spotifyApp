@@ -6,17 +6,14 @@ import Header from '../Header/Header.jsx';
 
 const Login = () => {
 
-// > https://accounts.spotify.com/authorize?client_id=4ebf54a90c4645958bb33f2737e82775&redirect_uri=http://localhost:3000/followers&response_type=token
+    function loginSpotifyClickHandler() {
+        // > localStorage.setItem('state', true);
+        // > var state = localStorage.getItem('state');
 
-    function onClickButton() {
-        
         var client_id = '4ebf54a90c4645958bb33f2737e82775';
         var response_type = 'token';
         var redirect_uri = 'http://localhost:3000/followers';
-        var scope = 'user-follow-read'
-
-        localStorage.setItem('state', true);
-        var state = localStorage.getItem('state');
+        var scope = 'user-follow-read';
 
         var url = 'https://accounts.spotify.com/authorize';
         url += '?response_type=token';
@@ -30,7 +27,11 @@ const Login = () => {
     return(
         <div>
             <Header />
-            <Button className='loginButton' onClick={() => onClickButton()}>Login to Spotify</Button>
+            <Button 
+                className='loginButton' 
+                onClick={() => loginSpotifyClickHandler()}>
+            Login to Spotify
+            </Button>
         </div>
     );
 };

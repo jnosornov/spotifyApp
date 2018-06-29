@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "name": "Goldfrapp",
+    "followers": 255318,
+    "genres": ["alternative dance", "art pop", "big beat", "chamber pop", "dance-punk", "electronic", "electropop", "indietronica", "neo-synthpop", "new rave", "new wave pop", "pop rock", "trip hop"],
+    "images": [      
+      {"height": 640, "url": "https://i.scdn.co/image/4224df3fe879a0527199e43e57911d9e9e336c87", "width": 640},
+      {"height": 320, "url": "https://i.scdn.co/image/2292a10c6ed5ee31e0e1ed5422407c1bf3c12d33", "width": 320},
+      {"height": 160, "url": "https://i.scdn.co/image/6e74df1d252a2e4252d1b1e313a0d117928c144b", "width": 160}
+    ]
+  },
+  {
+    "id": "2",
+    "name": "The Chainsmokers",
+    "followers": 7537509,
+    "genres": ["edm", "electropop", "pop", "tropical house"],
+    "images": [      
+      {"height": 640, "url": "https://i.scdn.co/image/507e7b0e9476dba6573f63fb46df9b2c49f28ff9", "width": 640},
+      {"height": 320, "url": "https://i.scdn.co/image/965cf721405a34bb12f098ff66527babeef6b1bc", "width": 320},
+      {"height": 160, "url": "https://i.scdn.co/image/7d06de65d7b9e4e383473ee733045302a66f8c51", "width": 160}
+    ]
+  }
+]
